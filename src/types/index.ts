@@ -62,3 +62,47 @@ export interface NoticeItem {
   date: string;
   type?: string;
 }
+
+// ---- 电子商城 ----
+
+export interface ShopCategory {
+  id: number;
+  name: string;
+  icon: string;
+  description: string;
+  product_count?: number;
+}
+
+export interface Product {
+  id: number;
+  category_id: number;
+  category_name?: string;
+  name: string;
+  description: string;
+  price: number;
+  original_price?: number;
+  stock: number;
+  image: string; // emoji or placeholder
+  tags: string[];
+  sales_count: number;
+  rating: number;
+  created_at: string;
+}
+
+export interface CartItem {
+  product_id: number;
+  product: Product;
+  quantity: number;
+}
+
+export interface Order {
+  id: string;
+  items: { product_id: number; name: string; price: number; quantity: number; image: string }[];
+  total: number;
+  buyer_name: string;
+  phone: string;
+  address: string;
+  note: string;
+  status: 'pending' | 'paid' | 'shipped' | 'done';
+  created_at: string;
+}

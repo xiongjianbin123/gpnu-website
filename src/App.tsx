@@ -7,6 +7,11 @@ import Forum from './pages/Forum'
 import ForumCategory from './pages/ForumCategory'
 import ForumPost from './pages/ForumPost'
 import NewPost from './pages/NewPost'
+import Shop from './pages/Shop'
+import ShopProduct from './pages/ShopProduct'
+import ShopCart from './pages/ShopCart'
+import ShopCheckout from './pages/ShopCheckout'
+import ShopOrders from './pages/ShopOrders'
 
 function App() {
   return (
@@ -21,6 +26,11 @@ function App() {
             <Route path="/forum/category/:id" element={<ForumCategory />} />
             <Route path="/forum/post/new" element={<NewPost />} />
             <Route path="/forum/post/:id" element={<ForumPost />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/product/:id" element={<ShopProduct />} />
+            <Route path="/shop/cart" element={<ShopCart />} />
+            <Route path="/shop/checkout" element={<ShopCheckout />} />
+            <Route path="/shop/orders" element={<ShopOrders />} />
           </Routes>
         </main>
         <Footer />

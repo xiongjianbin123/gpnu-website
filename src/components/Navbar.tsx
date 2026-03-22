@@ -77,6 +77,10 @@ const navItems: NavItem[] = [
     label: '大学生论坛',
     path: '/forum',
   },
+  {
+    label: '校园商城',
+    path: '/shop',
+  },
 ]
 
 export default function Navbar() {
@@ -84,6 +88,7 @@ export default function Navbar() {
   const location = useLocation()
 
   const isForumActive = location.pathname.startsWith('/forum')
+  const isShopActive = location.pathname.startsWith('/shop')
 
   return (
     <nav
@@ -97,7 +102,7 @@ export default function Navbar() {
     >
       <div className="container-main" style={{ display: 'flex' }}>
         {navItems.map(item => {
-          const isActive = item.path ? location.pathname === item.path || (item.path === '/forum' && isForumActive) : false
+          const isActive = item.path ? location.pathname === item.path || (item.path === '/forum' && isForumActive) || (item.path === '/shop' && isShopActive) : false
           const isOpen = activeMenu === item.label
 
           return (
@@ -119,7 +124,7 @@ export default function Navbar() {
                     borderBottom: isActive ? '3px solid #FFD700' : '3px solid transparent',
                     transition: 'all 0.2s',
                     whiteSpace: 'nowrap',
-                    background: item.label === '大学生论坛' ? 'rgba(200,16,46,0.85)' : 'transparent'
+                    background: item.label === '大学生论坛' ? 'rgba(200,16,46,0.85)' : item.label === '校园商城' ? 'rgba(22,100,172,0.7)' : 'transparent'
                   }}
                   onMouseOver={e => {
                     if (!isActive) {
